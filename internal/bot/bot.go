@@ -32,9 +32,7 @@ func NewBot(cfg *config.Config) *Bot {
 }
 
 func (b *Bot) Start() {
-	logger.Log.Printf("Bot started")
-
 	for update := range b.updates {
-		handlers.HandleUpdate(b.bot, update)
+		go handlers.HandleUpdate(b.bot, update)
 	}
 }

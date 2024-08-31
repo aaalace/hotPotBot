@@ -8,7 +8,7 @@ import (
 func HandleMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	switch message.Text {
 	case "ACCOUNT_BUTTON_TITLE":
-		msg := tgbotapi.NewMessage(message.Chat.ID, "ACCOUNT_BUTTON_TITLE:")
+		msg := tgbotapi.NewMessage(message.Chat.ID, "ACCOUNT_PAGE_TITLE")
 		msg.ReplyMarkup = tgbotapi.NewInlineKeyboardMarkup(
 			tgbotapi.NewInlineKeyboardRow(
 				tgbotapi.NewInlineKeyboardButtonData("CALLBACK1", "CALLBACK1_DATA"),

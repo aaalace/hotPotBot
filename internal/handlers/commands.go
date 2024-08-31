@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"hotPotBot/internal/keyboards"
 	"hotPotBot/internal/logger"
 )
 
@@ -15,12 +16,8 @@ func HandleCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 }
 
 func handleStartCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
-	msg := tgbotapi.NewMessage(message.Chat.ID, "Hello")
-	msg.ReplyMarkup = tgbotapi.NewReplyKeyboard(
-		tgbotapi.NewKeyboardButtonRow(
-			tgbotapi.NewKeyboardButton("ACCOUNT_BUTTON_TITLE"),
-		),
-	)
+	msg := tgbotapi.NewMessage(message.Chat.ID, "START_PAGE_TITLE")
+	msg.ReplyMarkup = keyboards.Footer
 
 	_, err := bot.Send(msg)
 	if err != nil {
