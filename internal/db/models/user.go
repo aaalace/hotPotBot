@@ -1,7 +1,7 @@
 package models
 
 type User struct {
-	Id         string
-	TelegramId int64
-	Fame       int64
+	Id         string `db:"id"`
+	TelegramId int    `db:"telegram_id"`
+	Weight     int    `db:"weight"`
 }

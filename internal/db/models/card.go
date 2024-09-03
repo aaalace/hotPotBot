@@ -1,9 +1,10 @@
 package models
 
 type Card struct {
-	Id       string
-	Type     int
-	ImageUrl string
-	Fame     int64
-	Price    int64
+	Id       int    `db:"id"`
+	ImageUrl string `db:"image_url"`
+	Name     string `db:"name"`
+	Price    int    `db:"price"`
+	Weight   int    `db:"weight"`
+	TypeId   int    `db:"type_id"`
 }

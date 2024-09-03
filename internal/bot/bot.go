@@ -3,6 +3,7 @@ package bot
 import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"hotPotBot/internal/config"
+	"hotPotBot/internal/context"
 	"hotPotBot/internal/handlers"
 	"hotPotBot/internal/logger"
 )
@@ -13,6 +14,8 @@ type Bot struct {
 }
 
 func NewBot(cfg *config.Config) *Bot {
+	logger.Log.Info("Initializing bot")
+
 	bot, err := tgbotapi.NewBotAPI(cfg.TelegramBotToken)
 	if err != nil {
 		logger.Log.Fatalf("Failed to create bot: %v", err)
@@ -31,8 +34,8 @@ func NewBot(cfg *config.Config) *Bot {
 	}
 }
 
-func (b *Bot) Start() {
+func (b *Bot) Start(ctx *context.AppContext) {
 	for update := range b.updates {
-		go handlers.HandleUpdate(b.bot, update)
+		handlers.HandleUpdate(ctx, b.bot, update)
 	}
 }

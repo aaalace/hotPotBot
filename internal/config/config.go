@@ -18,6 +18,6 @@ func NewConfig() *Config {
 
 	return &Config{
 		TelegramBotToken: os.Getenv("TELEGRAM_BOT_TOKEN"),
-		DatabasePath:     "path",
+		DatabasePath:     os.Getenv("DATABASE_PATH"),
 	}
 }
