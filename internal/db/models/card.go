@@ -2,8 +2,9 @@ package models
 
 type Card struct {
 	Id       string
-	Type     int
 	ImageUrl string
-	Fame     int64
+	Title    string
+	Type     int
 	Price    int64
+	Weight   int64
 }

@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
-	"hotPotBot/internal/keyboards"
 	"hotPotBot/internal/logger"
+	"hotPotBot/internal/presentation/keyboards"
+	"hotPotBot/internal/presentation/messages"
 )
 
 func HandleCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
@@ -16,11 +17,11 @@ func HandleCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 }
 
 func handleStartCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
-	msg := tgbotapi.NewMessage(message.Chat.ID, "START_PAGE_TITLE")
-	msg.ReplyMarkup = keyboards.Footer
+	msg := tgbotapi.NewMessage(message.Chat.ID, messages.StartPageTitle)
+	msg.ReplyMarkup = keyboards.FooterKeyboard
 
 	_, err := bot.Send(msg)
 	if err != nil {
-		logger.Log.Error("Error sending response to /start: " + err.Error())
+		logger.Log.Error("Error sending response </start>: " + err.Error())
 	}
 }

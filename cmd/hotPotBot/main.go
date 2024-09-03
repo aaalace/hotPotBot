@@ -6,8 +6,12 @@ import (
 )
 
 func main() {
-	cfg := config.NewConfig()
+	// recover?
+
+	configuration := config.NewConfig()
+
 	// db conn
-	botHandler := bot.NewBot(cfg)
+
+	botHandler := bot.NewBot(configuration)
 	botHandler.Start()
 }

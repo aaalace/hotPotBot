@@ -13,6 +13,8 @@ type Bot struct {
 }
 
 func NewBot(cfg *config.Config) *Bot {
+	logger.Log.Info("Initializing bot")
+
 	bot, err := tgbotapi.NewBotAPI(cfg.TelegramBotToken)
 	if err != nil {
 		logger.Log.Fatalf("Failed to create bot: %v", err)
@@ -33,6 +35,6 @@ func NewBot(cfg *config.Config) *Bot {
 
 func (b *Bot) Start() {
 	for update := range b.updates {
-		go handlers.HandleUpdate(b.bot, update)
+		handlers.HandleUpdate(b.bot, update)
 	}
 }
