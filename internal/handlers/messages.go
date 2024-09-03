@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	"hotPotBot/internal/presentation/buttons"
 	keyboards "hotPotBot/internal/presentation/keyboards/callbackKeyboards"
@@ -9,14 +10,14 @@ import (
 	"hotPotBot/internal/services"
 )
 
-func HandleMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
+func HandleMessage(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	switch message.Text {
-	case buttons.GetCardButton:
-		handleGetCardButton(bot, message)
+	case buttons.GetRandomCardButton:
+		handleGetRandomCard(ctx, bot, message)
 	case buttons.CardsStorageButton:
-		handleCardsStorageButton(bot, message)
+		handleCardsStorageMenu(bot, message)
 	case buttons.HotPotStudioButton:
-		handleHotPotStudioButton(bot, message)
+		handleHotPotStudioMenu(bot, message)
 	case buttons.TutorialButton:
 		handleTutorialButton(bot, message)
 	default:
@@ -24,15 +25,21 @@ func HandleMessage(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	}
 }
 
-func handleGetCardButton(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
-	service := services.GetRandomCardService{
-		Bot:    bot,
-		ChatId: message.Chat.ID,
+func handleGetRandomCard(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
+	randomCardService := services.RandomCardService{
+		Ctx: ctx,
 	}
-	service.Start()
+	randomCardService.GenerateCard()
+	// return some data
+	msg := tgbotapi.NewMessage(message.Chat.ID, "not implemented")
+
+	_, err := bot.Send(msg)
+	if err != nil {
+		logger.Log.Errorf("Error sending response <random card service> | %v", err)
+	}
 }
 
-func handleCardsStorageButton(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
+func handleCardsStorageMenu(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	msg := tgbotapi.NewMessage(message.Chat.ID, messages.CardsStoragePageTitle)
 	msg.ReplyMarkup = keyboards.CardsStorageKeyboard
 
@@ -42,7 +49,7 @@ func handleCardsStorageButton(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	}
 }
 
-func handleHotPotStudioButton(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
+func handleHotPotStudioMenu(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	msg := tgbotapi.NewMessage(message.Chat.ID, messages.HotPotStudioPageTitle)
 	msg.ReplyMarkup = keyboards.HotPotStudioKeyboard
 

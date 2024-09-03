@@ -1,6 +1,6 @@
 package buttons
 
-const GetCardButton = "Получить карту"
+const GetRandomCardButton = "Получить карту"
 
 const CardsStorageButton = "Мои карты"
 

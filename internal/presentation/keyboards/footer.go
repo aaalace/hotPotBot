@@ -7,7 +7,7 @@ import (
 
 var FooterKeyboard = tgbotapi.NewReplyKeyboard(
 	tgbotapi.NewKeyboardButtonRow(
-		tgbotapi.NewKeyboardButton(buttons.GetCardButton),
+		tgbotapi.NewKeyboardButton(buttons.GetRandomCardButton),
 		tgbotapi.NewKeyboardButton(buttons.CardsStorageButton),
 	),
 	tgbotapi.NewKeyboardButtonRow(

@@ -3,13 +3,18 @@ package main
 import (
 	"hotPotBot/internal/bot"
 	"hotPotBot/internal/config"
+	"hotPotBot/internal/context"
+	"hotPotBot/internal/db"
 )
 
 func main() {
 	// recover?
 
 	configuration := config.NewConfig()
-	// db conn
+
+	database := db.ConnectDatabase(configuration)
+	ctx := &context.AppContext{DB: database}
+
 	botHandler := bot.NewBot(configuration)
-	botHandler.Start()
+	botHandler.Start(ctx)
 }

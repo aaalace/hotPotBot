@@ -3,6 +3,7 @@ package bot
 import (
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"hotPotBot/internal/config"
+	"hotPotBot/internal/context"
 	"hotPotBot/internal/handlers"
 	"hotPotBot/internal/logger"
 )
@@ -33,8 +34,8 @@ func NewBot(cfg *config.Config) *Bot {
 	}
 }
 
-func (b *Bot) Start() {
+func (b *Bot) Start(ctx *context.AppContext) {
 	for update := range b.updates {
-		handlers.HandleUpdate(b.bot, update)
+		handlers.HandleUpdate(ctx, b.bot, update)
 	}
 }
