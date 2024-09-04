@@ -1,7 +1,7 @@
 package keyboards
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
 )
 
@@ -19,12 +19,12 @@ var HotPotStudioKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 			buttons.ShopInlineButton.Data),
 	),
 	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData(buttons.ExchangeInlineButton.Title,
-			buttons.ExchangeInlineButton.Data),
-	),
-	tgbotapi.NewInlineKeyboardRow(
 		tgbotapi.NewInlineKeyboardButtonData(buttons.CraftInlineButton.Title,
 			buttons.CraftInlineButton.Data),
+	),
+	tgbotapi.NewInlineKeyboardRow(
+		tgbotapi.NewInlineKeyboardButtonData(buttons.ExchangeInlineButton.Title,
+			buttons.ExchangeInlineButton.Data),
 	),
 	tgbotapi.NewInlineKeyboardRow(
 		tgbotapi.NewInlineKeyboardButtonData(buttons.DiceInlineButton.Title,

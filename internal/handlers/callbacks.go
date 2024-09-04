@@ -1,12 +1,11 @@
 package handlers
 
 import (
-	"database/sql"
-	"errors"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
+	"hotPotBot/internal/presentation/messages"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
 )
@@ -21,6 +20,7 @@ func HandleCallback(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgb
 	case buttons.MyAccountInlineButton.Data:
 		handleMyAccount(ctx, bot, callback)
 	case buttons.FindUserInlineButton.Data:
+		handleOtherAccountButton(ctx, bot, callback)
 	case buttons.ShopInlineButton.Data:
 	case buttons.ExchangeInlineButton.Data:
 	case buttons.CraftInlineButton.Data:
@@ -31,23 +31,36 @@ func HandleCallback(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgb
 	}
 }
 
+// Мой аккаунт
 func handleMyAccount(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery) {
 	userService := services.UserService{Ctx: ctx}
 	user, err := userService.GetUserByTelegramId(callback.From.ID)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			logger.Log.Warnf("User do not exists: %v", err)
-		} else {
-			logger.Log.Errorf("Error in getting user: %v", err)
-		}
+		logger.Log.Errorf("Error in getting user: %v", err.Error())
 		return
 	}
 
-	accountView := utils.GenerateAccountView(callback.From.UserName, user)
-	msg := tgbotapi.NewMessage(callback.Message.Chat.ID, accountView)
+	weight, err := userService.CountUserWeight(user.Id)
+	if err != nil {
+		logger.Log.Errorf("Error in count user weight: %v", err.Error())
+		return
+	}
 
+	accountView := utils.GenerateAccountView(callback.From.UserName, weight)
+	msg := tgbotapi.NewMessage(callback.Message.Chat.ID, accountView)
 	_, err = bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("fe")
+		logger.Log.Errorf("Error sending response <handleMyAccount>: %v", err.Error())
+	}
+}
+
+// Найти пользователя
+func handleOtherAccountButton(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery) {
+	utils.AddUserPreviousRequest(ctx, callback.From.ID, buttons.FindUserInlineButton.Data)
+
+	msg := tgbotapi.NewMessage(callback.Message.Chat.ID, messages.OtherAccountPageTitle)
+	_, err := bot.Send(msg)
+	if err != nil {
+		logger.Log.Errorf("Error sending response <handleOtherAccountButton>: %v", err.Error())
 	}
 }

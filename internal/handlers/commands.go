@@ -3,7 +3,7 @@ package handlers
 import (
 	"database/sql"
 	"errors"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	"hotPotBot/internal/presentation/keyboards"
@@ -28,7 +28,7 @@ func handleStartCommand(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *
 	_, err := userService.GetUserByTelegramId(message.From.ID)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
-			err = userService.AddUser(message.From.ID)
+			_, err = userService.AddUser(message.From.ID)
 			if err != nil {
 				logger.Log.Errorf("Failed to add user %v | %v", message.From.ID, err.Error())
 				msg = tgbotapi.NewMessage(message.Chat.ID, messages.InternalError)

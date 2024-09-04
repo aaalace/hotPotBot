@@ -8,12 +8,15 @@ import (
 )
 
 func main() {
-	// recover?
+	// recover
 
 	configuration := config.NewConfig()
 
 	database := db.ConnectDatabase(configuration)
-	ctx := &context.AppContext{DB: database}
+	ctx := &context.AppContext{
+		DB:           database,
+		UserRequests: make(map[int64]string),
+	}
 
 	botHandler := bot.NewBot(configuration)
 	botHandler.Start(ctx)

@@ -10,8 +10,9 @@ type UserService struct {
 	Ctx *context.AppContext
 }
 
-func (service *UserService) GetUserByTelegramId(telegramId int) (*models.User, error) {
+func (service *UserService) GetUserByTelegramId(telegramId int64) (*models.User, error) {
 	user := models.User{}
+
 	err := service.Ctx.DB.Get(&user, db.SelectUserQuery, telegramId)
 	if err != nil {
 		return nil, err
@@ -20,13 +21,22 @@ func (service *UserService) GetUserByTelegramId(telegramId int) (*models.User, e
 	return &user, nil
 }
 
-func (service *UserService) AddUser(telegramId int) error {
+func (service *UserService) AddUser(telegramId int64) (*models.User, error) {
 	user := models.User{
 		TelegramId: telegramId,
-		Weight:     0,
 	}
+
 	_, err := service.Ctx.DB.NamedExec(db.AddUserQuery, &user)
+	if err != nil {
+		return nil, err
+	}
 
-	return err
+	return &user, err
+}
 
+func (service *UserService) CountUserWeight(userId int) (int, error) {
+	weight := 0
+	err := service.Ctx.DB.Get(&weight, db.CountUserWeight, userId)
+
+	return weight, err
 }
