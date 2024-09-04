@@ -1,6 +1,4 @@
-
-### .env:
+## .env:
 > TELEGRAM_BOT_TOKEN
 
-> DB_PATH
-
+> DATABASE_PATH
