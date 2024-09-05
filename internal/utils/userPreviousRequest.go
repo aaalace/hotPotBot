@@ -10,8 +10,11 @@ func AddUserPreviousRequest(ctx *context.AppContext, telegramId int64, request s
 	ctx.Mu.Unlock()
 }
 
-func RemoveUserPreviousRequest(ctx *context.AppContext, telegramId int64) {
+func GetRmUserPreviousRequest(ctx *context.AppContext, telegramId int64) string {
 	ctx.Mu.Lock()
+	response := ctx.UserRequests[telegramId]
 	delete(ctx.UserRequests, telegramId)
 	ctx.Mu.Unlock()
+
+	return response
 }

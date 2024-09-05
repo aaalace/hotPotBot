@@ -11,17 +11,19 @@ import (
 	"time"
 )
 
-type NotEnoughTime struct{ TimeLeft time.Duration }
-
-func (err NotEnoughTime) Error() string {
-	return messages.SmallCooldownError + err.TimeLeft.Round(time.Second).String()
-}
+const FixedCooldown = time.Minute
 
 type RandomCardService struct {
 	Ctx *context.AppContext
 }
 
-const FixedCooldown = time.Minute
+type NotEnoughTime struct {
+	TimeLeft time.Duration
+}
+
+func (err NotEnoughTime) Error() string {
+	return messages.SmallCooldownError + err.TimeLeft.Round(time.Second).String()
+}
 
 func (service *RandomCardService) GetRandomCard(userId int) (*models.Card, error) {
 	// get cooldown

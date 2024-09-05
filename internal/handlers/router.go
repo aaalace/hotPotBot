@@ -7,6 +7,11 @@ import (
 	"hotPotBot/internal/services"
 )
 
+func updCorrectUsernameMiddleware(ctx *context.AppContext, tgId int64, tgUsername string) {
+	userService := services.UserService{Ctx: ctx}
+	userService.UpdCorrectUsername(tgId, tgUsername)
+}
+
 func HandleUpdate(ctx *context.AppContext, bot *tgbotapi.BotAPI, update tgbotapi.Update) {
 	if update.Message != nil {
 		id := update.Message.From.ID
@@ -29,9 +34,4 @@ func HandleUpdate(ctx *context.AppContext, bot *tgbotapi.BotAPI, update tgbotapi
 
 		HandleCallback(ctx, bot, update.CallbackQuery)
 	}
-}
-
-func updCorrectUsernameMiddleware(ctx *context.AppContext, tgId int64, tgUsername string) {
-	userService := services.UserService{Ctx: ctx}
-	userService.UpdCorrectUsername(tgId, tgUsername)
 }

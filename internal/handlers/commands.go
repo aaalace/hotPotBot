@@ -15,6 +15,8 @@ func HandleCommand(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbot
 	switch message.Command() {
 	case "start":
 		handleStartCommand(ctx, bot, message)
+	case "help":
+		handleHelpCommand(bot, message)
 	default:
 		logger.Log.Warnf("Unknown command: %s", message.Command())
 	}
@@ -41,5 +43,13 @@ func handleStartCommand(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *
 	_, err = bot.Send(msg)
 	if err != nil {
 		logger.Log.Errorf("Error sending response </start> | %v", err.Error())
+	}
+}
+
+func handleHelpCommand(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
+	msg := tgbotapi.NewMessage(message.Chat.ID, messages.SupportContactText)
+	_, err := bot.Send(msg)
+	if err != nil {
+		logger.Log.Errorf("Error sending response <support contact> | %v", err.Error())
 	}
 }

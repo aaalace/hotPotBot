@@ -11,6 +11,14 @@ var CardsStorageKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 			buttons.AllCardsInlineButton.Data),
 	),
 	tgbotapi.NewInlineKeyboardRow(
+		tgbotapi.NewInlineKeyboardButtonData(buttons.SingleCardsInlineButton.Title,
+			buttons.SingleCardsInlineButton.Data),
+	),
+	tgbotapi.NewInlineKeyboardRow(
+		tgbotapi.NewInlineKeyboardButtonData(buttons.AlbumCardsInlineButton.Title,
+			buttons.AlbumCardsInlineButton.Data),
+	),
+	tgbotapi.NewInlineKeyboardRow(
 		tgbotapi.NewInlineKeyboardButtonData(buttons.DuplicatesInlineButton.Title,
 			buttons.DuplicatesInlineButton.Data),
 	),
