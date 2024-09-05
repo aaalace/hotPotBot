@@ -28,7 +28,7 @@ func handleStartCommand(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *
 	_, err := userService.GetUserByTelegramId(message.From.ID)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
-			_, err = userService.AddUser(message.From.ID)
+			_, err = userService.AddUser(message.From.ID, message.From.UserName)
 			if err != nil {
 				logger.Log.Errorf("Failed to add user %v | %v", message.From.ID, err.Error())
 				msg = tgbotapi.NewMessage(message.Chat.ID, messages.InternalError)

@@ -1,0 +1,195 @@
+time="09-05-2024 01:31:01" level=info msg="Initializing bot"
+time="09-05-2024 01:31:06" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 01:31:06" level=error msg="Error in getting user: sql: no rows in result set"
+time="09-05-2024 01:31:32" level=info msg="New message: /start" username=aaalace
+time="09-05-2024 01:32:29" level=info msg="Initializing bot"
+time="09-05-2024 01:32:49" level=info msg="New message: /start" username=aaalace
+time="09-05-2024 02:26:41" level=info msg="New message: /start" username=aaalace
+time="09-05-2024 02:35:48" level=info msg="Initializing bot"
+time="09-05-2024 02:36:02" level=info msg="New message: Hot Pot Studio 🎸" username=aaalace
+time="09-05-2024 02:36:03" level=info msg="New callback: my_account_button_data" username=aaalace
+time="09-05-2024 02:36:23" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:36:34" level=info msg="New callback: my_account_button_data" username=aaalacewefwef
+time="09-05-2024 02:38:10" level=info msg="Initializing bot"
+time="09-05-2024 02:38:11" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:38:32" level=info msg="New message: Получить карту 📈" username=aaalacewefwef
+time="09-05-2024 02:38:33" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:38:42" level=info msg="New message: Получить карту 📈" username=aaalacewefwef
+time="09-05-2024 02:38:46" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:38:48" level=info msg="New message: Мои карты 💼" username=aaalacewefwef
+time="09-05-2024 02:38:50" level=info msg="New message: Туториал 📚" username=aaalacewefwef
+time="09-05-2024 02:38:52" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:38:54" level=info msg="New callback: my_account_button_data" username=aaalacewefwef
+time="09-05-2024 02:39:02" level=info msg="New message: Получить карту 📈" username=aaalacewefwef
+time="09-05-2024 02:39:37" level=info msg="Initializing bot"
+time="09-05-2024 02:39:39" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:43:02" level=info msg="Initializing bot"
+time="09-05-2024 02:43:06" level=info msg="New message: Туториал 📚" username=aaalacewefwef
+time="09-05-2024 02:44:24" level=info msg="Initializing bot"
+time="09-05-2024 02:44:26" level=info msg="New message: Hot Pot Studio 🎸" username=aaalacewefwef
+time="09-05-2024 02:44:58" level=info msg="New callback: my_account_button_data" username=aaalace
+time="09-05-2024 02:45:15" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 02:46:03" level=error msg="UpdCorrectUsername error: sql: no rows in result set"
+time="09-05-2024 02:46:03" level=info msg="New message: /start" username=hhhllkp
+time="09-05-2024 02:46:46" level=info msg="New message: Hot Pot Studio 🎸" username=hhhllkp
+time="09-05-2024 02:46:47" level=info msg="New callback: my_account_button_data" username=hhhllkp
+time="09-05-2024 02:47:09" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 02:47:14" level=info msg="New message: Hot Pot Studio 🎸" username=hhhllkp
+time="09-05-2024 02:47:15" level=info msg="New callback: my_account_button_data" username=hhhllkp
+time="09-05-2024 03:19:55" level=info msg="Initializing bot"
+time="09-05-2024 03:20:05" level=info msg="New message: hhhllkp" username=aaalace
+time="09-05-2024 03:20:05" level=warning msg="Unknown message: hhhllkp"
+time="09-05-2024 03:20:08" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 03:20:12" level=info msg="New message: hhhllkp" username=aaalace
+time="09-05-2024 03:20:18" level=info msg="New callback: my_account_button_data" username=aaalace
+time="09-05-2024 03:20:20" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 03:20:23" level=info msg="New message: @aaalace" username=aaalace
+time="09-05-2024 03:20:26" level=info msg="New message: ewefdqw" username=aaalace
+time="09-05-2024 03:20:26" level=warning msg="Unknown message: ewefdqw"
+time="09-05-2024 03:20:28" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 03:20:29" level=info msg="New message: dsdfvs" username=aaalace
+time="09-05-2024 03:20:30" level=error msg="Error in getting user: sql: no rows in result set"
+time="09-05-2024 03:23:16" level=info msg="Initializing bot"
+time="09-05-2024 03:23:17" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 03:23:19" level=info msg="New message: n" username=aaalace
+time="09-05-2024 03:23:19" level=error msg="Error in getting user: sql: no rows in result set"
+time="09-05-2024 03:23:40" level=info msg="New message: Hot Pot Studio 🎸" username=aaalace
+time="09-05-2024 03:23:42" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 03:23:51" level=info msg="New message: @hhhlllkp" username=aaalace
+time="09-05-2024 03:23:51" level=error msg="Error in getting user: sql: no rows in result set"
+time="09-05-2024 03:23:55" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 03:24:01" level=info msg="New message: @hhhllkp" username=aaalace
+time="09-05-2024 04:21:08" level=info msg="Initializing bot"
+time="09-05-2024 04:24:10" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:24:11" level=error msg="Error in getting random card: pq: there is no parameter $1"
+time="09-05-2024 04:24:49" level=info msg="Initializing bot"
+time="09-05-2024 04:25:04" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:25:04" level=error msg="Error in getting random card: sql: no rows in result set"
+time="09-05-2024 04:30:47" level=info msg="Initializing bot"
+time="09-05-2024 04:30:49" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:30:57" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:30:58" level=error msg="Error in getting random card: Получение карты будет доступно через:\n8s"
+time="09-05-2024 04:33:25" level=info msg="Initializing bot"
+time="09-05-2024 04:33:32" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:33:38" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:33:39" level=error msg="Error in getting random card: <nil>"
+time="09-05-2024 04:34:13" level=info msg="Initializing bot"
+time="09-05-2024 04:34:14" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:34:15" level=error msg="Error in getting random card: <nil>"
+time="09-05-2024 04:36:01" level=info msg="Initializing bot"
+time="09-05-2024 04:36:05" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:36:42" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:36:43" level=error msg="Error in getting random card: <nil>"
+time="09-05-2024 04:38:02" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:38:03" level=error msg="Error in getting random card: <nil>"
+time="09-05-2024 04:38:04" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:38:04" level=error msg="Error in getting random card: <nil>"
+time="09-05-2024 04:38:06" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:38:06" level=error msg="Error in getting random card: <nil>"
+time="09-05-2024 04:39:15" level=info msg="Initializing bot"
+time="09-05-2024 04:39:41" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:39:46" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:39:51" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:41:40" level=info msg="Initializing bot"
+time="09-05-2024 04:41:42" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:42:24" level=info msg="Initializing bot"
+time="09-05-2024 04:42:24" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:42:36" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:42:45" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:44:10" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:44:14" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:44:28" level=info msg="Initializing bot"
+time="09-05-2024 04:44:32" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:44:54" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:46:23" level=info msg="Initializing bot"
+time="09-05-2024 04:48:57" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:49:01" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:49:08" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:59:40" level=info msg="Initializing bot"
+time="09-05-2024 04:59:44" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 04:59:57" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:06:06" level=info msg="Initializing bot"
+time="09-05-2024 05:06:09" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:06:12" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:06:36" level=info msg="Initializing bot"
+time="09-05-2024 05:06:43" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:07:44" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:10:12" level=info msg="Initializing bot"
+time="09-05-2024 05:10:14" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:10:18" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:11:18" level=info msg="New message: Hot Pot Studio 🎸" username=aaalace
+time="09-05-2024 05:11:18" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:12:46" level=info msg="Initializing bot"
+time="09-05-2024 05:13:22" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:13:26" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:13:29" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:20:04" level=info msg="Initializing bot"
+time="09-05-2024 05:20:12" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:20:14" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:20:45" level=info msg="Initializing bot"
+time="09-05-2024 05:20:47" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:20:51" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:21:36" level=info msg="Initializing bot"
+time="09-05-2024 05:21:37" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:21:42" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:21:47" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:22:27" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:22:36" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:22:38" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:22:46" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:22:50" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:24:37" level=info msg="Initializing bot"
+time="09-05-2024 05:24:41" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:24:49" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:28:17" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:28:21" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:37:57" level=info msg="Initializing bot"
+time="09-05-2024 05:37:59" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:38:05" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:39:51" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:39:53" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:40:12" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:40:34" level=info msg="New message: Hot Pot Studio 🎸" username=aaalace
+time="09-05-2024 05:40:36" level=info msg="New callback: my_account_button_data" username=aaalace
+time="09-05-2024 05:40:38" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:40:52" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:40:55" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:41:42" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:41:55" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:03" level=info msg="New message: Туториал 📚" username=hhhllkp
+time="09-05-2024 05:42:04" level=info msg="New message: Мои карты 💼" username=hhhllkp
+time="09-05-2024 05:42:07" level=info msg="New message: Hot Pot Studio 🎸" username=hhhllkp
+time="09-05-2024 05:42:11" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:17" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:20" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:40" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:41" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:42:47" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:42:47" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:50" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:42:51" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:53" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:53" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:42:55" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:42:55" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:43:00" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:43:01" level=info msg="New message: Получить карту 📈" username=hhhllkp
+time="09-05-2024 05:43:01" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:43:01" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:49:00" level=info msg="New message: Мои карты 💼" username=aaalace
+time="09-05-2024 05:49:09" level=info msg="New message: Получить карту 📈" username=aaalace
+time="09-05-2024 05:49:12" level=info msg="New message: Туториал 📚" username=aaalace
+time="09-05-2024 05:49:13" level=info msg="New message: Hot Pot Studio 🎸" username=aaalace
+time="09-05-2024 05:49:15" level=info msg="New callback: my_account_button_data" username=aaalace
+time="09-05-2024 05:49:17" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 05:49:58" level=info msg="New message: Hot Pot Studio 🎸" username=aaalace
+time="09-05-2024 05:50:00" level=info msg="New callback: find_user_button_data" username=aaalace
+time="09-05-2024 05:50:07" level=info msg="New message: @hhhllkp" username=aaalace

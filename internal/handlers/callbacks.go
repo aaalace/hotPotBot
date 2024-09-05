@@ -39,7 +39,6 @@ func handleMyAccount(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tg
 		logger.Log.Errorf("Error in getting user: %v", err.Error())
 		return
 	}
-
 	weight, err := userService.CountUserWeight(user.Id)
 	if err != nil {
 		logger.Log.Errorf("Error in count user weight: %v", err.Error())
