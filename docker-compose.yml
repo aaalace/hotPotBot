@@ -1,11 +1,13 @@
 services:
   bot:
-    build: .
+    image: your-dockerhub-username/your-repository-name:latest
+#    build: .
     env_file:
       - .env
     ports:
       - "8080:8080"
-    volumes:
-      - ./logs:/app/logs
-    command:
-      - "./main"
+#    volumes:
+#      - ./logs:/app/logs
+    restart: always
+#    command:
+#      - "./main"
