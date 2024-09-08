@@ -11,9 +11,7 @@ var SupportContactText = fmt.Sprintf("При возникновении проб
 
 // Page titles
 
-const SuccessfulRandomCardDropTitle = "Поздравляем, тебе выпала карта -"
-
-const TutorialTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, in culpa qui officia deserunt mollit anim id est laborum."
+const TutorialTitle = "Тут будет туториал"
 
 const StartPageTitle = "Привет!\nЕсли ты тут впервые - ознакомься с туториалом по кнопке в нижней части бота"
 
@@ -32,4 +30,8 @@ const CraftTitle = "🔮 Добро пожаловать в Hot Pot Сraft\nЗд
 
 const CraftAgreementTitle = "Подтверди крафт"
 
-const SuccessfulCraftMessage = "Поздравляем, ты скрафтил -"
+// Messages
+
+const SuccessfulRandomCardDropTitle = "Поздравляем, тебе выпала карта -"
+
+const SuccessfulCraftTitle = "Поздравляем, ты скрафтил -"

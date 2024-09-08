@@ -43,7 +43,7 @@ func GenerateShopCardView(card *models.Card, typename string) string {
 func GenerateCraftCardView(card *models.Card, typename string) string {
 	textView := fmt.Sprintf(
 		"%s\n%s\n\nТип: %s\nFame: %v\n\n",
-		messages.SuccessfulCraftMessage,
+		messages.SuccessfulCraftTitle,
 		card.Name,
 		typename,
 		card.Weight)
