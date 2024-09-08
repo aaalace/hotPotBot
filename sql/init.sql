@@ -1,8 +1,8 @@
 CREATE TABLE users
 (
-    id          SERIAL PRIMARY KEY,
-    telegram_id INT,
-    weight      INT
+    id                SERIAL PRIMARY KEY,
+    telegram_id       BIGINT,
+    telegram_username TEXT
 );
 
 CREATE TABLE card_types
@@ -18,7 +18,7 @@ CREATE TABLE cards
     image_url TEXT,
     price     INT,
     weight    INT,
-    type_id   BIGINT REFERENCES card_types (id)
+    type_id   INT REFERENCES card_types (id)
 );
 
 CREATE TABLE user_cards
@@ -28,3 +28,10 @@ CREATE TABLE user_cards
     quantity INT,
     PRIMARY KEY (user_id, card_id)
 );
+
+CREATE TABLE cooldowns
+(
+    id SERIAL PRIMARY KEY,
+    user_id BIGINT,
+    next_accept TIMESTAMP
+)

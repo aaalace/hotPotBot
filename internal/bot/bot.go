@@ -1,11 +1,12 @@
 package bot
 
 import (
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/config"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/handlers"
 	"hotPotBot/internal/logger"
+	"log"
 )
 
 type Bot struct {
@@ -18,15 +19,13 @@ func NewBot(cfg *config.Config) *Bot {
 
 	bot, err := tgbotapi.NewBotAPI(cfg.TelegramBotToken)
 	if err != nil {
-		logger.Log.Fatalf("Failed to create bot: %v", err)
+		logger.Log.Fatalf("Failed to create bot | %v", err.Error())
+		return nil
 	}
 
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
-	updates, err := bot.GetUpdatesChan(u)
-	if err != nil {
-		logger.Log.Fatalf("Failed to get updates channel: %v", err)
-	}
+	updates := bot.GetUpdatesChan(u)
 
 	return &Bot{
 		bot:     bot,
@@ -35,7 +34,17 @@ func NewBot(cfg *config.Config) *Bot {
 }
 
 func (b *Bot) Start(ctx *context.AppContext) {
-	for update := range b.updates {
-		handlers.HandleUpdate(ctx, b.bot, update)
+	for {
+		func() {
+			defer func() {
+				if r := recover(); r != nil {
+					log.Printf("Panic occurred | %v", r)
+				}
+			}()
+
+			for update := range b.updates {
+				handlers.HandleUpdate(ctx, b.bot, update)
+			}
+		}()
 	}
 }

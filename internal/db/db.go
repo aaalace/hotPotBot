@@ -11,7 +11,7 @@ func ConnectDatabase(cfg *config.Config) *sqlx.DB {
 	dsn := cfg.DatabasePath
 	db, err := sqlx.Connect("postgres", dsn)
 	if err != nil {
-		logger.Log.Fatalf("Failed to setup database: %v", err)
+		logger.Log.Fatalf("Failed to setup database | %v", err.Error())
 		return nil
 	}
 	return db

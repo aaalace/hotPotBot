@@ -2,10 +2,24 @@ package utils
 
 import (
 	"fmt"
-	"hotPotBot/internal/db/models"
+	"hotPotBot/internal/presentation/messages"
 )
 
-func GenerateAccountView(username string, user *models.User) string {
-	textView := fmt.Sprintf("Имя пользователя: @%s\nFame: %v", username, user.Weight)
+func GenerateMyAccountView(username string, weight int) string {
+	textView := fmt.Sprintf(
+		"%s\n\n@%s\nFame: %v",
+		messages.MyAccountPageTitle,
+		username,
+		weight)
+
+	return textView
+}
+
+func GenerateAccountView(username string, weight int) string {
+	textView := fmt.Sprintf(
+		"@%s\nFame: %v",
+		username,
+		weight)
+
 	return textView
 }
