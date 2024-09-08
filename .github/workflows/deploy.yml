@@ -36,5 +36,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            cd hotPotBot
             docker compose down || true
             docker compose up -d
