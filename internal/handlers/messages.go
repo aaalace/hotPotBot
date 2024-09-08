@@ -12,7 +12,8 @@ import (
 
 func HandleMessage(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	switch message.Text {
-	// footer buttons
+
+	// Footer buttons
 	case buttons.GetRandomCardButton:
 		messageHandlers.HandleGetRandomCard(ctx, bot, message)
 	case buttons.CardsStorageButton:
@@ -21,7 +22,8 @@ func HandleMessage(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbot
 		messageHandlers.HandleHotPotStudioMenu(bot, message)
 	case buttons.TutorialButton:
 		messageHandlers.HandleTutorialButton(bot, message)
-	// just messages
+
+	// Just messages
 	default:
 		HandleDynamicMessage(ctx, bot, message)
 	}
@@ -34,7 +36,7 @@ func HandleDynamicMessage(ctx *context.AppContext, bot *tgbotapi.BotAPI, message
 	case callbackButtons.FindUserInlineButton.Data:
 		messageHandlers.HandleOtherAccount(ctx, bot, message)
 	default:
-		logger.Log.Warnf("Unknown message: %s", message.Text)
+		logger.Log.Warnf("Unknown message")
 	}
 
 }

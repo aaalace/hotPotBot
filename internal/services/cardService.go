@@ -16,10 +16,32 @@ type CardRequestParams struct {
 	Index      int
 }
 
+func (service *CardService) GetCardsByType(typeId int) ([]*models.Card, error) {
+	var cards []*models.Card
+
+	err := service.Ctx.DB.Select(&cards, db.SelectCardsByType, typeId)
+	if err != nil {
+		return nil, err
+	}
+
+	return cards, nil
+}
+
 func (service *CardService) GetUserCardsWithType(userId int, typeId int) ([]*models.Card, error) {
 	var cards []*models.Card
 
-	err := service.Ctx.DB.Select(&cards, db.SelectUserCardsWithType, userId, typeId)
+	err := service.Ctx.DB.Select(&cards, db.SelectUserCardsByType, userId, typeId)
+	if err != nil {
+		return nil, err
+	}
+
+	return cards, nil
+}
+
+func (service *CardService) GetUserDuplicates(userId int) ([]*models.Card, error) {
+	var cards []*models.Card
+
+	err := service.Ctx.DB.Select(&cards, db.SelectUserDuplicates, userId)
 	if err != nil {
 		return nil, err
 	}

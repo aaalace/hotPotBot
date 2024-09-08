@@ -3,6 +3,7 @@ package services
 import (
 	"database/sql"
 	"errors"
+	"hotPotBot/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/db"
 	"hotPotBot/internal/db/models"
@@ -10,8 +11,6 @@ import (
 	"math/rand"
 	"time"
 )
-
-const FixedCooldown = time.Minute
 
 type RandomCardService struct {
 	Ctx *context.AppContext
@@ -34,9 +33,8 @@ func (service *RandomCardService) GetRandomCard(userId int) (*models.Card, error
 		return nil, err
 	}
 
-	nextAccept := time.Now().Add(FixedCooldown)
+	nextAccept := time.Now().Add(consts.FixedCooldown)
 	if err == nil {
-		// need to change cooldown case
 		timeLeft := cooldown.NextAccept.Sub(time.Now())
 
 		// check for ability to take card
@@ -47,7 +45,6 @@ func (service *RandomCardService) GetRandomCard(userId int) (*models.Card, error
 
 		_, err = service.Ctx.DB.Exec(db.UpdateCooldown, nextAccept, userId)
 	} else {
-		// need to add cooldown case
 		_, err = service.Ctx.DB.NamedExec(db.AddCooldown, map[string]interface{}{
 			"user_id":     userId,
 			"next_accept": nextAccept,
@@ -70,7 +67,7 @@ func (service *RandomCardService) GetRandomCard(userId int) (*models.Card, error
 	}
 
 	// give card to user
-	_, err = service.Ctx.DB.NamedExec(db.GiveUserRandomCard, map[string]interface{}{
+	_, err = service.Ctx.DB.NamedExec(db.GiveUserCard, map[string]interface{}{
 		"user_id": userId,
 		"card_id": randomCardId,
 	})

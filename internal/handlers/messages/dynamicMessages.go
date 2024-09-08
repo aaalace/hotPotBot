@@ -16,19 +16,19 @@ func HandleOtherAccount(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *
 	userService := services.UserService{Ctx: ctx}
 	user, err := userService.GetUserByUsername(message.Text)
 	if err != nil {
-		logger.Log.Errorf("Error in getting user: %v", err.Error())
+		logger.Log.Errorf("Error in getting user <HandleOtherAccount> | %v", err.Error())
 		_, err = bot.Send(msg)
 		if err != nil {
-			logger.Log.Errorf("Error sending response <handleOtherAccount 1_2>: %v", err.Error())
+			logger.Log.Errorf("Error sending response <HandleOtherAccount> | %v", err.Error())
 		}
 		return
 	}
 	weight, err := userService.CountUserWeight(user.Id)
 	if err != nil {
-		logger.Log.Errorf("Error in count user weight: %v", err.Error())
+		logger.Log.Errorf("Error in count user weight <HandleOtherAccount> | %v", err.Error())
 		_, err = bot.Send(msg)
 		if err != nil {
-			logger.Log.Errorf("Error sending response <handleOtherAccount 2_2>: %v", err.Error())
+			logger.Log.Errorf("Error sending response <HandleOtherAccount>: %v", err.Error())
 		}
 		return
 	}
@@ -37,6 +37,6 @@ func HandleOtherAccount(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *
 	msg = tgbotapi.NewMessage(message.Chat.ID, accountView)
 	_, err = bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <handleOtherAccount>: %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleOtherAccount>: %v", err.Error())
 	}
 }

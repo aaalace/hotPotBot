@@ -16,7 +16,7 @@ func HandleGetRandomCard(ctx *context.AppContext, bot *tgbotapi.BotAPI, message 
 	userService := services.UserService{Ctx: ctx}
 	user, err := userService.GetUserByTelegramId(message.From.ID)
 	if err != nil {
-		logger.Log.Errorf("Error in getting user: %v", err)
+		logger.Log.Errorf("Error in getting user <HandleGetRandomCard> | %v", err.Error())
 		return
 	}
 
@@ -27,18 +27,18 @@ func HandleGetRandomCard(ctx *context.AppContext, bot *tgbotapi.BotAPI, message 
 			msg := tgbotapi.NewMessage(message.Chat.ID, err.Error())
 			_, err = bot.Send(msg)
 			if err != nil {
-				logger.Log.Errorf("Error sending response <random card service cooldown> | %v", err.Error())
+				logger.Log.Errorf("Error sending response <HandleGetRandomCard> | %v", err.Error())
 			}
 			return
 		}
-		logger.Log.Errorf("Error in getting random card: %v", err)
+		logger.Log.Errorf("Error in getting random card <HandleGetRandomCard> | %v", err.Error())
 		return
 	}
 
 	cardService := services.CardService{Ctx: ctx}
 	typeName, err := cardService.GetTypeNameByTypeId(card.TypeId)
 	if err != nil {
-		logger.Log.Errorf("Error in getting typename: %v", err)
+		logger.Log.Errorf("Error in getting typename <HandleGetRandomCard> | %v", err.Error())
 		return
 	}
 
@@ -47,7 +47,7 @@ func HandleGetRandomCard(ctx *context.AppContext, bot *tgbotapi.BotAPI, message 
 	photo.Caption = view
 	_, err = bot.Send(photo)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <random card service> | %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleGetRandomCard> | %v", err.Error())
 	}
 }
 
@@ -57,7 +57,7 @@ func HandleCardsStorageMenu(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	msg.ReplyMarkup = keyboards.CardsStorageKeyboard
 	_, err := bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <open cardsStorage> | %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleCardsStorageMenu> | %v", err.Error())
 	}
 }
 
@@ -67,15 +67,15 @@ func HandleHotPotStudioMenu(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
 	msg.ReplyMarkup = keyboards.HotPotStudioKeyboard
 	_, err := bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <open studio> | %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleHotPotStudioMenu> | %v", err.Error())
 	}
 }
 
 // HandleTutorialButton - Туториал
 func HandleTutorialButton(bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
-	msg := tgbotapi.NewMessage(message.Chat.ID, messages.TutorialText)
+	msg := tgbotapi.NewMessage(message.Chat.ID, messages.TutorialTitle)
 	_, err := bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <open tutorial> | %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleTutorialButton> | %v", err.Error())
 	}
 }

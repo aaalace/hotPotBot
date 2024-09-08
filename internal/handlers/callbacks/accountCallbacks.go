@@ -15,20 +15,20 @@ func HandleMyAccount(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tg
 	userService := services.UserService{Ctx: ctx}
 	user, err := userService.GetUserByTelegramId(callback.From.ID)
 	if err != nil {
-		logger.Log.Errorf("Error in getting user: %v", err.Error())
+		logger.Log.Errorf("Error in getting user <HandleMyAccount> | %v", err.Error())
 		return
 	}
 	weight, err := userService.CountUserWeight(user.Id)
 	if err != nil {
-		logger.Log.Errorf("Error in count user weight: %v", err.Error())
+		logger.Log.Errorf("Error in count user weight <HandleMyAccount> | %v", err.Error())
 		return
 	}
 
-	accountView := utils.GenerateAccountView(callback.From.UserName, weight)
+	accountView := utils.GenerateMyAccountView(callback.From.UserName, weight)
 	msg := tgbotapi.NewMessage(callback.Message.Chat.ID, accountView)
 	_, err = bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <handleMyAccount>: %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleMyAccount> | %v", err.Error())
 	}
 }
 
@@ -39,6 +39,6 @@ func HandleOtherAccountButton(ctx *context.AppContext, bot *tgbotapi.BotAPI, cal
 	msg := tgbotapi.NewMessage(callback.Message.Chat.ID, messages.OtherAccountPageTitle)
 	_, err := bot.Send(msg)
 	if err != nil {
-		logger.Log.Errorf("Error sending response <handleOtherAccountButton>: %v", err.Error())
+		logger.Log.Errorf("Error sending response <HandleMyAccount> | %v", err.Error())
 	}
 }

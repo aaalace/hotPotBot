@@ -5,3 +5,7 @@ const InternalError = "Извините, произошла ошибка на с
 const SmallCooldownError = "Получение карты будет доступно через:\n"
 
 const UserNotFoundError = "Пользователь не найден ❌"
+
+const NoCardsError = "У вас пока нет таких карт :("
+
+const NoCardsForCraft = "Недостаточно дубликатов данного типа для крафта :("

@@ -6,6 +6,7 @@ import (
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/handlers"
 	"hotPotBot/internal/logger"
+	"log"
 )
 
 type Bot struct {
@@ -18,7 +19,8 @@ func NewBot(cfg *config.Config) *Bot {
 
 	bot, err := tgbotapi.NewBotAPI(cfg.TelegramBotToken)
 	if err != nil {
-		logger.Log.Fatalf("Failed to create bot: %v", err)
+		logger.Log.Fatalf("Failed to create bot | %v", err.Error())
+		return nil
 	}
 
 	u := tgbotapi.NewUpdate(0)
@@ -32,7 +34,17 @@ func NewBot(cfg *config.Config) *Bot {
 }
 
 func (b *Bot) Start(ctx *context.AppContext) {
-	for update := range b.updates {
-		go handlers.HandleUpdate(ctx, b.bot, update)
+	for {
+		func() {
+			defer func() {
+				if r := recover(); r != nil {
+					log.Printf("Panic occurred | %v", r)
+				}
+			}()
+
+			for update := range b.updates {
+				handlers.HandleUpdate(ctx, b.bot, update)
+			}
+		}()
 	}
 }
