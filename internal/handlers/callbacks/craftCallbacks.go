@@ -2,7 +2,6 @@ package callbackHandlers
 
 import (
 	"errors"
-	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/consts"
 	"hotPotBot/internal/context"
@@ -74,7 +73,6 @@ func HandleCraftAgreement(ctx *context.AppContext, bot *tgbotapi.BotAPI, callbac
 			consts.TypeAlbum)
 	}
 
-	fmt.Println(craftedCard, serviceErr)
 	if serviceErr != nil {
 		if errors.As(serviceErr, &services.NotEnoughCardsForCraft{}) {
 			msg := tgbotapi.NewMessage(callback.Message.Chat.ID, serviceErr.Error())
