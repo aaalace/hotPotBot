@@ -38,4 +38,4 @@ jobs:
           script: |
             cd hotPotBot
             docker compose down || true
-            docker compose up -d
+            docker compose up --build
