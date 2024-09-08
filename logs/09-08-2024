@@ -392,3 +392,20 @@ time="09-08-2024 17:55:40" level=info msg="New message | Мои карты 💼"
 time="09-08-2024 17:55:42" level=info msg="New callback | all_cards_button_data" username=aaalace
 time="09-08-2024 17:55:45" level=info msg="New callback | arrow_carousel_button_data&2" username=aaalace
 time="09-08-2024 17:59:40" level=info msg="New message | Туториал 📚" username=aaalace
+time="09-08-2024 20:20:13" level=info msg="Initializing bot"
+time="09-08-2024 20:20:14" level=info msg="New message | Туториал 📚" username=aaalace
+time="09-08-2024 20:20:14" level=info msg="New message | Получить карту 📈" username=aaalace
+time="09-08-2024 20:20:16" level=info msg="New message | Туториал 📚" username=aaalace
+time="09-08-2024 20:32:22" level=info msg="New message | Получить карту 📈" username=aaalace
+time="09-08-2024 20:32:28" level=info msg="New message | Мои карты 💼" username=aaalace
+time="09-08-2024 20:32:29" level=info msg="New message | Hot Pot Studio 🎸" username=aaalace
+time="09-08-2024 20:32:31" level=info msg="New callback | find_user_button_data" username=aaalace
+time="09-08-2024 20:32:32" level=info msg="New callback | my_account_button_data" username=aaalace
+time="09-08-2024 20:32:35" level=info msg="New callback | shop_button_data" username=aaalace
+time="09-08-2024 20:32:36" level=info msg="New callback | shop_all_cards_button_data" username=aaalace
+time="09-08-2024 20:32:38" level=info msg="New callback | shop_button_data" username=aaalace
+time="09-08-2024 20:32:40" level=info msg="New message | Hot Pot Studio 🎸" username=aaalace
+time="09-08-2024 20:32:41" level=info msg="New callback | craft_button_data" username=aaalace
+time="09-08-2024 20:32:42" level=info msg="New callback | craft_album_button_data" username=aaalace
+time="09-08-2024 20:32:44" level=info msg="New callback | do_craft_button_data" username=aaalace
+time="09-08-2024 20:32:47" level=info msg="New callback | craft_button_data" username=aaalace
