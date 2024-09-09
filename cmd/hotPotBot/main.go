@@ -1,15 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"hotPotBot/internal/bot"
 	"hotPotBot/internal/config"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/db"
+	"hotPotBot/internal/logger"
 )
 
 func main() {
-	fmt.Println("Starting Application...")
+	logger.Log.Info("Starting Configuring...")
 
 	configuration := config.NewConfig()
 
@@ -28,5 +28,6 @@ func main() {
 		panic("Can not connect to telegram bot")
 	}
 
+	logger.Log.Info("Starting Application...")
 	botHandler.Start(ctx)
 }
