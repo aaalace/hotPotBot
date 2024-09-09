@@ -38,4 +38,6 @@ jobs:
         script: |
           cd hotPotBot
           docker compose down
+          docker compose pull
+          docker images | grep aaalace/hotpotbot
           docker compose up -d
