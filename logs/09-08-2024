@@ -409,3 +409,6 @@ time="09-08-2024 20:32:41" level=info msg="New callback | craft_button_data" use
 time="09-08-2024 20:32:42" level=info msg="New callback | craft_album_button_data" username=aaalace
 time="09-08-2024 20:32:44" level=info msg="New callback | do_craft_button_data" username=aaalace
 time="09-08-2024 20:32:47" level=info msg="New callback | craft_button_data" username=aaalace
+time="09-08-2024 23:21:18" level=info msg="Initializing bot"
+time="09-08-2024 23:21:45" level=info msg="New message | Туториал 📚" username=aaalace
+time="09-08-2024 23:22:02" level=info msg="Initializing bot"
