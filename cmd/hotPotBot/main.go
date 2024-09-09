@@ -25,7 +25,7 @@ func main() {
 
 	botHandler := bot.NewBot(configuration)
 	if botHandler == nil {
-		panic("Can not connect to database")
+		panic("Can not connect to telegram bot")
 	}
 
 	botHandler.Start(ctx)
