@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"hotPotBot/internal/bot"
 	"hotPotBot/internal/config"
 	"hotPotBot/internal/context"
@@ -8,11 +9,13 @@ import (
 )
 
 func main() {
+	fmt.Println("Starting Application...")
+
 	configuration := config.NewConfig()
 
 	database := db.ConnectDatabase(configuration)
 	if database == nil {
-		return
+		panic("Can not connect to database")
 	}
 
 	ctx := &context.AppContext{
@@ -22,7 +25,7 @@ func main() {
 
 	botHandler := bot.NewBot(configuration)
 	if botHandler == nil {
-		return
+		panic("Can not connect to database")
 	}
 
 	botHandler.Start(ctx)
