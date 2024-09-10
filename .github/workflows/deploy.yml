@@ -36,6 +36,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd hotPotBot
-            docker-compose down
-            docker-compose pull hotpotbot
-            docker-compose up -d
+            docker compose down
+            docker compose pull hotpotbot
+            docker compose up -d
