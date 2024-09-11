@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	logger.Log.Info("Starting Configuring...")
+	logger.Log.Info("Start configuring...")
 
 	configuration := config.NewConfig()
 
@@ -28,6 +28,6 @@ func main() {
 		panic("Can not connect to telegram bot")
 	}
 
-	logger.Log.Info("Starting Application...")
+	logger.Log.Info("Start polling...")
 	botHandler.Start(ctx)
 }
