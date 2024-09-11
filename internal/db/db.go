@@ -8,6 +8,8 @@ import (
 )
 
 func ConnectDatabase(cfg *config.Config) *sqlx.DB {
+	logger.Log.Info("Initializing database")
+
 	dsn := cfg.DatabasePath
 	db, err := sqlx.Connect("postgres", dsn)
 	if err != nil {
