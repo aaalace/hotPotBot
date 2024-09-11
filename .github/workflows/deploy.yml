@@ -37,5 +37,5 @@ jobs:
           script: |
             cd hotPotBot
             docker compose down
-            docker compose pull hotpotbot
+            docker compose pull telegram-bot
             docker compose up -d
