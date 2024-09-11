@@ -3,3 +3,14 @@ services:
     build: .
     ports:
       - "8080:8080"
+
+### REMOTE COMPOSE
+#services:
+#  telegram-bot:
+#    image: hub_username/hub_image:latest
+#    container_name: telegram-bot
+#    restart: always
+#    volumes:
+#      - .env:/app/.env
+#    ports:
+#      - "8080:8080"
