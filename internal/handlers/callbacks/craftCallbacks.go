@@ -10,6 +10,7 @@ import (
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
 	keyboards "hotPotBot/internal/presentation/keyboards/callbackKeyboards"
 	"hotPotBot/internal/presentation/messages"
+	"hotPotBot/internal/s3"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
 	"log"
@@ -99,7 +100,12 @@ func HandleCraftAgreement(ctx *context.AppContext, bot *tgbotapi.BotAPI, callbac
 		return
 	}
 
-	photo := tgbotapi.NewPhoto(callback.Message.Chat.ID, tgbotapi.FilePath(craftedCard.ImageUrl))
+	imageReader, err := s3.DownloadImageFromS3(ctx.S3Client, craftedCard.ImageUrl)
+
+	photo := tgbotapi.NewPhoto(callback.Message.Chat.ID, tgbotapi.FileReader{
+		Name:   craftedCard.ImageUrl,
+		Reader: imageReader,
+	})
 	view := utils.GenerateCraftCardView(craftedCard, typeName)
 	photo.Caption = view
 	photo.ReplyMarkup = keyboards.AfterCraftKeyboard
