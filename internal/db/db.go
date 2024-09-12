@@ -16,5 +16,6 @@ func ConnectDatabase(cfg *config.Config) *sqlx.DB {
 		logger.Log.Fatalf("Failed to setup database | %v", err.Error())
 		return nil
 	}
+
 	return db
 }

@@ -7,6 +7,7 @@ import (
 	"hotPotBot/internal/logger"
 	keyboards "hotPotBot/internal/presentation/keyboards/callbackKeyboards"
 	"hotPotBot/internal/presentation/messages"
+	"hotPotBot/internal/s3"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
 )
@@ -42,7 +43,12 @@ func HandleGetRandomCard(ctx *context.AppContext, bot *tgbotapi.BotAPI, message 
 		return
 	}
 
-	photo := tgbotapi.NewPhoto(message.Chat.ID, tgbotapi.FilePath(card.ImageUrl))
+	imageReader, err := s3.DownloadImageFromS3(ctx.S3Client, card.ImageUrl)
+
+	photo := tgbotapi.NewPhoto(message.Chat.ID, tgbotapi.FileReader{
+		Name:   card.ImageUrl,
+		Reader: imageReader,
+	})
 	view := utils.GenerateRandomCardView(card, typeName)
 	photo.Caption = view
 	_, err = bot.Send(photo)

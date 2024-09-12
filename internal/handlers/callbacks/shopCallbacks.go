@@ -9,6 +9,7 @@ import (
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
 	keyboards "hotPotBot/internal/presentation/keyboards/callbackKeyboards"
 	"hotPotBot/internal/presentation/messages"
+	"hotPotBot/internal/s3"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
 	"log"
@@ -88,7 +89,12 @@ func HandleShowCardInShop(
 		return
 	}
 
-	photo := tgbotapi.NewPhoto(callback.Message.Chat.ID, tgbotapi.FilePath(card.ImageUrl))
+	imageReader, err := s3.DownloadImageFromS3(ctx.S3Client, card.ImageUrl)
+
+	photo := tgbotapi.NewPhoto(callback.Message.Chat.ID, tgbotapi.FileReader{
+		Name:   card.ImageUrl,
+		Reader: imageReader,
+	})
 	view := utils.GenerateShopCardView(card, typeName)
 	photo.Caption = view
 	photo.ReplyMarkup = keyboards.NewShopCarouselKeyboard(index, len(cards), index-1, index+1)
