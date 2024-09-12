@@ -4,6 +4,8 @@ import "time"
 
 // Other Constants
 
+const AppLocation = "Europe/Moscow"
+
 const AdminNick = "@aaalace"
 
 const TechSupportNick = "@aaalace"
