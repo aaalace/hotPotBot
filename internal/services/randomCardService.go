@@ -3,7 +3,7 @@ package services
 import (
 	"database/sql"
 	"errors"
-	"hotPotBot/consts"
+	"hotPotBot/internal/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/db"
 	"hotPotBot/internal/db/models"
