@@ -1,8 +1,6 @@
 package consts
 
-import (
-	"time"
-)
+import "time"
 
 // Card Types
 const (
@@ -16,8 +14,6 @@ const (
 	Free            = 0
 	CraftAlbumPrice = 10
 )
-
-// Other Constants
 
 const LogsFlushInterval = time.Hour * 24
 const AppLocation = "Europe/Moscow"
