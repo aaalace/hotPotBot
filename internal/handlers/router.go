@@ -2,6 +2,7 @@ package handlers
 
 import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"github.com/sirupsen/logrus"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	"hotPotBot/internal/services"
@@ -19,7 +20,10 @@ func HandleUpdate(ctx *context.AppContext, bot *tgbotapi.BotAPI, update tgbotapi
 		username := update.Message.From.UserName
 		updCorrectUsernameMiddleware(ctx, id, username)
 
-		logger.Log.WithField("username", username).Info("New message | " + update.Message.Text)
+		logger.Log.WithFields(logrus.Fields{
+			"username": username,
+			"tgId":     id,
+		}).Info("New message | " + update.Message.Text)
 
 		if update.Message.IsCommand() {
 			HandleCommand(ctx, bot, update.Message)
@@ -31,7 +35,10 @@ func HandleUpdate(ctx *context.AppContext, bot *tgbotapi.BotAPI, update tgbotapi
 		username := update.CallbackQuery.From.UserName
 		updCorrectUsernameMiddleware(ctx, id, username)
 
-		logger.Log.WithField("username", username).Info("New callback | " + update.CallbackQuery.Data)
+		logger.Log.WithFields(logrus.Fields{
+			"username": username,
+			"tgId":     id,
+		}).Info("New callback | " + update.CallbackQuery.Data)
 
 		HandleCallback(ctx, bot, update.CallbackQuery)
 		utils.RemoveLoading(bot, update.CallbackQuery)

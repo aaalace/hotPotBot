@@ -3,7 +3,7 @@ package callbackHandlers
 import (
 	"errors"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
-	"hotPotBot/consts"
+	"hotPotBot/internal/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/db/models"
 	"hotPotBot/internal/logger"

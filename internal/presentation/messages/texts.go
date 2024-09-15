@@ -2,7 +2,7 @@ package messages
 
 import (
 	"fmt"
-	"hotPotBot/consts"
+	"hotPotBot/internal/consts"
 )
 
 var ForPurchaseWrite = fmt.Sprintf("Для покупки пиши - %s", consts.AdminNick)

@@ -11,7 +11,9 @@ import (
 	"os"
 )
 
-func ConnectS3Client(cfg *config.Config) *s3.S3 {
+// New S3 Client
+
+func NewS3Client(cfg *config.Config) *s3.S3 {
 	logger.Log.Info("Initializing S3")
 
 	sess, err := session.NewSession(&aws.Config{
@@ -26,6 +28,8 @@ func ConnectS3Client(cfg *config.Config) *s3.S3 {
 
 	return s3.New(sess)
 }
+
+// Images Downloading
 
 func DownloadImageFromS3(s3Client *s3.S3, key string) (io.ReadCloser, error) {
 	input := &s3.GetObjectInput{

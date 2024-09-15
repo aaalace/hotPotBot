@@ -2,37 +2,45 @@ package logger
 
 import (
 	"fmt"
+	"github.com/joho/godotenv"
 	"github.com/sirupsen/logrus"
-	"hotPotBot/consts"
+	"hotPotBot/internal/consts"
 	"os"
 	"time"
 )
 
 var Log *logrus.Logger
 
-type CustomFormatter struct {
-	Location *time.Location
-}
-
-func (f *CustomFormatter) Format(entry *logrus.Entry) ([]byte, error) {
-	localTime := entry.Time.In(f.Location)
-
-	return []byte(
-		fmt.Sprintf("%s [%s] %s\n",
-			localTime.Format("2006-01-02 15:04:05"),
-			entry.Level,
-			entry.Message),
-	), nil
-}
-
 func init() {
-	loc, err := time.LoadLocation(consts.AppLocation)
-	if err != nil {
-		panic(err)
+	if err := godotenv.Load(); err != nil {
+		panic("Error loading env variables")
 	}
 
-	Log = logrus.New()
+	Log = NewLogger()
+	Log.Info("Logger initialized")
+}
 
-	Log.SetFormatter(&CustomFormatter{Location: loc})
-	Log.SetOutput(os.Stdout)
+func NewLogger() *logrus.Logger {
+	logger := logrus.New()
+
+	loc, err := time.LoadLocation(consts.AppLocation)
+	if err != nil {
+		panic(fmt.Sprintf("Can not load location in logger | %v", err))
+	}
+	logger.SetFormatter(NewLogFormatter(loc))
+
+	logger.SetOutput(os.Stdout)
+	if mode := os.Getenv("MODE"); mode == "prod" {
+		localLogsPath := os.Getenv("LOGS_LOCAL_PATH")
+		file, err := os.OpenFile(localLogsPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+		if err != nil {
+			panic(fmt.Sprintf("Can not open local logs path | %v", err))
+		}
+		logger.SetOutput(file)
+
+		s3LogsUploader := NewS3LogsUploader(loc, localLogsPath)
+		go s3LogsUploader.Listen()
+	}
+
+	return logger
 }

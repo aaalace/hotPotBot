@@ -10,16 +10,17 @@ import (
 )
 
 func main() {
+	// Log - "hotPotBot/internal/logger" package
 	logger.Log.Info("Start configuring...")
 
 	configuration := config.NewConfig()
 
-	database := db.ConnectDatabase(configuration)
+	database := db.NewDatabase(configuration)
 	if database == nil {
 		panic("Can not connect to database")
 	}
 
-	s3Client := s3.ConnectS3Client(configuration)
+	s3Client := s3.NewS3Client(configuration)
 	if s3Client == nil {
 		panic("Can not connect to S3")
 	}

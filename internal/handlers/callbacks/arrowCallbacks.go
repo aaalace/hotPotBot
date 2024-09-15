@@ -2,7 +2,7 @@ package callbackHandlers
 
 import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
-	"hotPotBot/consts"
+	"hotPotBot/internal/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
