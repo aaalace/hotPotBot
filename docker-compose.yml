@@ -13,7 +13,7 @@ volumes:
 #-----------REMOTE COMPOSE-----------
 #services:
 #  telegram-bot:
-#    image: hub_username/hub_image:latest
+#    image: HUB_USERNAME/HUB_IMAGE:latest
 #    container_name: telegram-bot
 #    restart: always
 #    volumes:
