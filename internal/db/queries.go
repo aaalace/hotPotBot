@@ -6,9 +6,11 @@ const SelectUserQuery = `SELECT * FROM users WHERE telegram_id = $1`
 
 const SelectUserByUsernameQuery = `SELECT * FROM users WHERE telegram_username = $1`
 
-const AddUserQuery = `INSERT INTO users (telegram_id, telegram_username) VALUES (:telegram_id, :telegram_username)`
+const AddUserQuery = `INSERT INTO users (telegram_id, telegram_username)
+	VALUES (:telegram_id, :telegram_username)`
 
-const UpdCorrectUsername = `UPDATE users SET telegram_username = :telegram_username WHERE telegram_id = :telegram_id`
+const UpdCorrectUsername = `UPDATE users SET telegram_username = :telegram_username
+    WHERE telegram_id = :telegram_id`
 
 // -----CARDS-----
 
@@ -61,7 +63,7 @@ const CountUserWeight = `SELECT COALESCE(SUM(c.weight * uc.quantity), 0) AS weig
 const SelectUserCardQuantity = `SELECT quantity FROM user_cards WHERE user_id = $1 AND card_id = $2`
 
 const MinusUserCardQuantity = `UPDATE user_cards SET quantity = quantity - :to_remove
-                  WHERE user_id = :user_id AND card_id = :card_id`
+    WHERE user_id = :user_id AND card_id = :card_id`
 
 // -----CARD_TYPES-----
 

@@ -56,8 +56,15 @@ func HandleCallback(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgb
 		arrowPattern := fmt.Sprintf(`^%s&\d+$`, buttons.LeftInlineButton.Data)
 		arrowRe := regexp.MustCompile(arrowPattern)
 
+		// pattern for check if data is from exchange this card
+		exchangePattern := fmt.Sprintf(`^%s&\d+&\d+$`, buttons.ExchangeThisCardInlineButton.Data)
+		exchangeRe := regexp.MustCompile(exchangePattern)
+
 		if arrowRe.MatchString(callback.Data) {
 			callbackHandlers.HandleArrowButton(ctx, bot, callback)
+		} else if exchangeRe.MatchString(callback.Data) {
+			// TODO
+			logger.Log.Info("exchange:", callback.Data)
 		} else {
 			logger.Log.Warnf("Unknown callback")
 		}

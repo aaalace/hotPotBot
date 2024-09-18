@@ -110,7 +110,7 @@ func HandleShowCardInList(
 	})
 	view := utils.GenerateCardView(card, typeName, quantity)
 	photo.Caption = view
-	photo.ReplyMarkup = keyboards.NewCarouselKeyboard(index, len(cards), index-1, index+1)
+	photo.ReplyMarkup = keyboards.NewMyCardsCarouselKeyboard(index, len(cards), index-1, index+1, user.Id, card.Id)
 	_, err = bot.Send(photo)
 	if err != nil {
 		logger.Log.Errorf("Error sending response <HandleShowCardInList> | %v", err.Error())

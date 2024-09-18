@@ -22,12 +22,12 @@ var HotPotStudioKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardButtonData(buttons.CraftInlineButton.Title,
 			buttons.CraftInlineButton.Data),
 	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData(buttons.ExchangeInlineButton.Title,
-			buttons.ExchangeInlineButton.Data),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData(buttons.DiceInlineButton.Title,
-			buttons.DiceInlineButton.Data),
-	),
+	//tgbotapi.NewInlineKeyboardRow(
+	//	tgbotapi.NewInlineKeyboardButtonData(buttons.ExchangeInlineButton.Title,
+	//		buttons.ExchangeInlineButton.Data),
+	//),
+	//tgbotapi.NewInlineKeyboardRow(
+	//	tgbotapi.NewInlineKeyboardButtonData(buttons.DiceInlineButton.Title,
+	//		buttons.DiceInlineButton.Data),
+	//),
 )

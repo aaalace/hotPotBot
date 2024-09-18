@@ -5,10 +5,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./daily.log:/app/daily.log
-
-volumes:
-  logs:
+      - ./daily.log:/daily.log
 
 #-----------REMOTE COMPOSE-----------
 #services:
@@ -16,8 +13,7 @@ volumes:
 #    image: HUB_USERNAME/HUB_IMAGE:latest
 #    container_name: telegram-bot
 #    restart: always
-#    volumes:
-#      - .env:/app/.env
-#      - ./daily.log:/app/daily.log
 #    ports:
 #      - "8080:8080"
+#    volumes:
+#      - ./daily.log:daily.log

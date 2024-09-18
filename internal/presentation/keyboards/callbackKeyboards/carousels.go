@@ -55,6 +55,30 @@ func NewCarouselKeyboard(
 	)
 }
 
+func NewMyCardsCarouselKeyboard(
+	cur int,
+	total int,
+	leftIndex int,
+	rightIndex int,
+	userFromId int,
+	cardId int,
+) tgbotapi.InlineKeyboardMarkup {
+	return tgbotapi.NewInlineKeyboardMarkup(
+		getDefaultCarouselRow(cur, total, leftIndex, rightIndex),
+		tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonData(
+				buttons.ExchangeThisCardInlineButton.Title,
+				fmt.Sprintf("%s%s%v%s%v",
+					buttons.ExchangeThisCardInlineButton.Data,
+					DataDelimiter,
+					userFromId,
+					DataDelimiter,
+					cardId),
+			),
+		),
+	)
+}
+
 func NewShopCarouselKeyboard(
 	cur int,
 	total int,
