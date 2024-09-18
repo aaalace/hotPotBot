@@ -1,6 +1,8 @@
-## .env:
+## Before start
 
-MODE=```[prod / debug]```
+```.env```
+
+MODE=[prod / debug]
 
 TELEGRAM_BOT_TOKEN
 
@@ -22,4 +24,8 @@ S3_SECRET_KEY
 
 S3_BUCKET
 
-LOGS_LOCAL_PATH=```daily.log``` (put ```daily.log``` in root dir)
+--------
+
+```daily.log```
+
+put this file in root dir
