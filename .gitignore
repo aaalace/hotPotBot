@@ -1,6 +1,6 @@
 .DS_Store
 .idea
+.zed
 .env
-sql
 daily.log
-/.devcontainer/
+sql

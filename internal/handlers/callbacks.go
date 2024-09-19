@@ -2,12 +2,13 @@ package handlers
 
 import (
 	"fmt"
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/context"
 	callbackHandlers "hotPotBot/internal/handlers/callbacks"
 	"hotPotBot/internal/logger"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
 	"regexp"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 func HandleCallback(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery) {
@@ -57,14 +58,13 @@ func HandleCallback(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgb
 		arrowRe := regexp.MustCompile(arrowPattern)
 
 		// pattern for check if data is from exchange this card
-		exchangePattern := fmt.Sprintf(`^%s&\d+&\d+$`, buttons.ExchangeThisCardInlineButton.Data)
+		exchangePattern := fmt.Sprintf(`^%s&\d+$`, buttons.ExchangeThisCardInlineButton.Data)
 		exchangeRe := regexp.MustCompile(exchangePattern)
 
 		if arrowRe.MatchString(callback.Data) {
 			callbackHandlers.HandleArrowButton(ctx, bot, callback)
 		} else if exchangeRe.MatchString(callback.Data) {
-			// TODO
-			logger.Log.Info("exchange:", callback.Data)
+			callbackHandlers.HandleInitExchange(ctx, bot, callback)
 		} else {
 			logger.Log.Warnf("Unknown callback")
 		}

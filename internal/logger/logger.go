@@ -2,11 +2,12 @@ package logger
 
 import (
 	"fmt"
-	"github.com/joho/godotenv"
-	"github.com/sirupsen/logrus"
 	"hotPotBot/internal/consts"
 	"os"
 	"time"
+
+	"github.com/joho/godotenv"
+	"github.com/sirupsen/logrus"
 )
 
 var Log *logrus.Logger

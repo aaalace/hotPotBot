@@ -1,8 +1,9 @@
 package keyboards
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/presentation/buttons"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 var FooterKeyboard = tgbotapi.NewReplyKeyboard(

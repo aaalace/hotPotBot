@@ -1,7 +1,6 @@
 package callbackHandlers
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/db/models"
@@ -13,6 +12,8 @@ import (
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
 	"log"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 // HandleAllCardsButton - Все карты
@@ -110,7 +111,7 @@ func HandleShowCardInList(
 	})
 	view := utils.GenerateCardView(card, typeName, quantity)
 	photo.Caption = view
-	photo.ReplyMarkup = keyboards.NewMyCardsCarouselKeyboard(index, len(cards), index-1, index+1, user.Id, card.Id)
+	photo.ReplyMarkup = keyboards.NewMyCardsCarouselKeyboard(index, len(cards), index-1, index+1, card.Id)
 	_, err = bot.Send(photo)
 	if err != nil {
 		logger.Log.Errorf("Error sending response <HandleShowCardInList> | %v", err.Error())

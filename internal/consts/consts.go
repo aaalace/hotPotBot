@@ -21,3 +21,4 @@ const AdminNick = "@aaalace"
 const TechSupportNick = "@aaalace"
 const FixedCooldown = 6 * time.Hour
 const StartCarouselIndex = 1
+const InlineDataDelimiter = "&"

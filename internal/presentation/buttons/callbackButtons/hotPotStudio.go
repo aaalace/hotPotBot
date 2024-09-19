@@ -1,5 +1,7 @@
 package buttons
 
+// hot pot studio menu
+
 var MyAccountInlineButton = CallbackButton{
 	Title: "Мой аккаунт 👤",
 	Data:  "my_account_button_data",

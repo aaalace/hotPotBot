@@ -2,7 +2,6 @@ package callbackHandlers
 
 import (
 	"errors"
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/db/models"
@@ -14,6 +13,8 @@ import (
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
 	"log"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 // HandleCraftButton - Крафт

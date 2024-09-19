@@ -1,12 +1,13 @@
 package handlers
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
-	"github.com/sirupsen/logrus"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"github.com/sirupsen/logrus"
 )
 
 func updCorrectUsernameMiddleware(ctx *context.AppContext, tgId int64, tgUsername string) {

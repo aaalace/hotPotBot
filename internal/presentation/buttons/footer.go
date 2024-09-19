@@ -1,5 +1,7 @@
 package buttons
 
+// footer menu
+
 const GetRandomCardButton = "Получить карту 📈"
 
 const CardsStorageButton = "Мои карты 💼"

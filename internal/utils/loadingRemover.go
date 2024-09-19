@@ -1,8 +1,9 @@
 package utils
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/logger"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 func RemoveLoading(bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery) {
