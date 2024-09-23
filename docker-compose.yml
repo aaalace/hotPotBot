@@ -7,4 +7,13 @@ services:
     volumes:
       - ./daily.log:/daily.log
 
-#-----------REMOTE COMPOSE----
+#-----------REMOTE COMPOSE-----------
+#services:
+#  telegram-bot:
+#    image: HUB_USERNAME/HUB_IMAGE:latest
+#    container_name: telegram-bot
+#    restart: always
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      - ./daily.log:daily.log
