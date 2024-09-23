@@ -2,11 +2,12 @@ package logger
 
 import (
 	"fmt"
-	"github.com/joho/godotenv"
-	"github.com/sirupsen/logrus"
 	"hotPotBot/internal/consts"
 	"os"
 	"time"
+
+	"github.com/joho/godotenv"
+	"github.com/sirupsen/logrus"
 )
 
 var Log *logrus.Logger
@@ -31,7 +32,7 @@ func NewLogger() *logrus.Logger {
 
 	logger.SetOutput(os.Stdout)
 	if mode := os.Getenv("MODE"); mode == "prod" {
-		localLogsPath := os.Getenv("LOGS_LOCAL_PATH")
+		localLogsPath := "daily.log"
 		file, err := os.OpenFile(localLogsPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 		if err != nil {
 			panic(fmt.Sprintf("Can not open local logs path | %v", err))

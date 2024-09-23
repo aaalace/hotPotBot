@@ -3,12 +3,13 @@ package handlers
 import (
 	"database/sql"
 	"errors"
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	"hotPotBot/internal/presentation/keyboards"
 	"hotPotBot/internal/presentation/messages"
 	"hotPotBot/internal/services"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 func HandleCommand(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbotapi.Message) {

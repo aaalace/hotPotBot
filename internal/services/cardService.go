@@ -16,6 +16,17 @@ type CardRequestParams struct {
 	Index      int
 }
 
+func (service *CardService) GetCardById(id int) (*models.Card, error) {
+	var card models.Card
+	
+	err := service.Ctx.DB.Get(&card, db.SelectCardById, id)
+	if err != nil {
+		return nil, err
+	}
+	
+	return &card, nil
+}
+
 func (service *CardService) GetCardsByType(typeId int) ([]*models.Card, error) {
 	var cards []*models.Card
 

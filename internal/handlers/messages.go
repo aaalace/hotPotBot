@@ -1,13 +1,16 @@
 package handlers
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"fmt"
 	"hotPotBot/internal/context"
 	messageHandlers "hotPotBot/internal/handlers/messages"
 	"hotPotBot/internal/logger"
 	"hotPotBot/internal/presentation/buttons"
 	callbackButtons "hotPotBot/internal/presentation/buttons/callbackButtons"
 	"hotPotBot/internal/utils"
+	"regexp"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 func HandleMessage(ctx *context.AppContext, bot *tgbotapi.BotAPI, message *tgbotapi.Message) {
@@ -36,7 +39,14 @@ func HandleDynamicMessage(ctx *context.AppContext, bot *tgbotapi.BotAPI, message
 	case callbackButtons.FindUserInlineButton.Data:
 		messageHandlers.HandleOtherAccount(ctx, bot, message)
 	default:
-		logger.Log.Warnf("Unknown message")
+		// pattern for check if data is from exchange this card
+		exchangePattern := fmt.Sprintf(`^%s&\d+$`, callbackButtons.ExchangeThisCardInlineButton.Data)
+		exchangeRe := regexp.MustCompile(exchangePattern)
+		if exchangeRe.MatchString(prevReq) {
+			messageHandlers.HandleExchangeToAccount(ctx, bot, message, prevReq)
+		} else {
+			logger.Log.Warnf("Unknown message")	
+		}
 	}
 
 }

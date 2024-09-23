@@ -9,3 +9,5 @@ const UserNotFoundError = "Пользователь не найден ❌"
 const NoCardsError = "У вас пока нет таких карт :("
 
 const NoCardsForCraft = "Недостаточно дубликатов данного типа для крафта :("
+
+const CanNotExchangeMyself = "Вы не можете обменяться с собой :)"

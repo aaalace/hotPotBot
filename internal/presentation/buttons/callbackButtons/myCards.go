@@ -1,5 +1,7 @@
 package buttons
 
+// my cards menu
+
 var AllCardsInlineButton = CallbackButton{
 	Title: "Все карты 💎",
 	Data:  "all_cards_button_data",

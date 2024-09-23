@@ -1,10 +1,11 @@
 package db
 
 import (
-	"github.com/jmoiron/sqlx"
-	_ "github.com/lib/pq"
 	"hotPotBot/internal/config"
 	"hotPotBot/internal/logger"
+
+	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 func NewDatabase(cfg *config.Config) *sqlx.DB {
@@ -17,7 +18,7 @@ func NewDatabase(cfg *config.Config) *sqlx.DB {
 		return nil
 	}
 	if db == nil {
-		logger.Log.Fatalf("Failed to connect database | %v", err.Error())
+		logger.Log.Fatalf("Failed to connect database")
 		return nil
 	}
 

@@ -1,13 +1,14 @@
 package callbackHandlers
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
 	"hotPotBot/internal/presentation/messages"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 // HandleMyAccount - Мой аккаунт

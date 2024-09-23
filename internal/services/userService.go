@@ -12,6 +12,17 @@ type UserService struct {
 	Ctx *context.AppContext
 }
 
+func (service *UserService) GetUserById(id int) (*models.User, error) {
+	user := models.User{}
+
+	err := service.Ctx.DB.Get(&user, db.SelectUserByLocalIdQuery, id)
+	if err != nil {
+		return nil, err
+	}
+
+	return &user, nil
+}
+
 func (service *UserService) GetUserByTelegramId(tgId int64) (*models.User, error) {
 	user := models.User{}
 

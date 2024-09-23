@@ -2,9 +2,10 @@ package config
 
 import (
 	"fmt"
-	"github.com/joho/godotenv"
 	"hotPotBot/internal/logger"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {

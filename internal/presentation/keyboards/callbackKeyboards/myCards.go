@@ -1,8 +1,9 @@
 package keyboards
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 var CardsStorageKeyboard = tgbotapi.NewInlineKeyboardMarkup(

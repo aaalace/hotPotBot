@@ -2,7 +2,6 @@ package messageHandlers
 
 import (
 	"errors"
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	keyboards "hotPotBot/internal/presentation/keyboards/callbackKeyboards"
@@ -10,6 +9,8 @@ import (
 	"hotPotBot/internal/s3"
 	"hotPotBot/internal/services"
 	"hotPotBot/internal/utils"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 // HandleGetRandomCard - Получить карту

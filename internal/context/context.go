@@ -1,9 +1,10 @@
 package context
 
 import (
+	"sync"
+
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/jmoiron/sqlx"
-	"sync"
 )
 
 type AppContext struct {

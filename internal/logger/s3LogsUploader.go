@@ -1,13 +1,14 @@
 package logger
 
 import (
+	"hotPotBot/internal/consts"
+	"os"
+	"time"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
-	"hotPotBot/internal/consts"
-	"os"
-	"time"
 )
 
 type S3LogsUploader struct {

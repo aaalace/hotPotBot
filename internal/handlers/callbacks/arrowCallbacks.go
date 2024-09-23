@@ -1,20 +1,20 @@
 package callbackHandlers
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/consts"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/logger"
 	buttons "hotPotBot/internal/presentation/buttons/callbackButtons"
-	keyboards "hotPotBot/internal/presentation/keyboards/callbackKeyboards"
 	"hotPotBot/internal/utils"
 	"strconv"
 	"strings"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 // HandleArrowButton - кнопки пролистывания в карусели
 func HandleArrowButton(ctx *context.AppContext, bot *tgbotapi.BotAPI, callback *tgbotapi.CallbackQuery) {
-	index, err := strconv.Atoi(strings.Split(callback.Data, keyboards.DataDelimiter)[1])
+	index, err := strconv.Atoi(strings.Split(callback.Data, consts.InlineDataDelimiter)[1])
 	if err != nil {
 		logger.Log.Errorf("Error in parsing arrow button <HandleArrowButton> | %v", err.Error())
 		return

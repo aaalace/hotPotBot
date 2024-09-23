@@ -1,12 +1,13 @@
 package bot
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"hotPotBot/internal/config"
 	"hotPotBot/internal/context"
 	"hotPotBot/internal/handlers"
 	"hotPotBot/internal/logger"
 	"log"
+
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 type Bot struct {
