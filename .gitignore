@@ -1,6 +1,12 @@
 .DS_Store
 .idea
 .zed
-.env
+
+# app logs
 daily.log
+
+# envitonment variables
+.env
+
+# quieries
 sql

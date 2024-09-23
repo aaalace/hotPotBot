@@ -8,6 +8,8 @@ WORKDIR /app
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o main ./cmd/hotPotBot
 
+# -------------------
+
 FROM scratch
 
 COPY --from=gobuild /app/main /main

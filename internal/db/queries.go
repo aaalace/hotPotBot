@@ -2,6 +2,8 @@ package db
 
 // -----USERS-----
 
+const SelectUserByLocalIdQuery = `SELECT * FROM users WHERE id = $1`
+
 const SelectUserQuery = `SELECT * FROM users WHERE telegram_id = $1`
 
 const SelectUserByUsernameQuery = `SELECT * FROM users WHERE telegram_username = $1`
@@ -76,3 +78,24 @@ const GetCooldown = `SELECT * FROM cooldowns WHERE user_id = $1`
 const AddCooldown = `INSERT INTO cooldowns (user_id, next_accept) VALUES (:user_id, :next_accept)`
 
 const UpdateCooldown = `UPDATE cooldowns SET next_accept = $1 WHERE user_id = $2`
+
+// EXCHANGE
+
+const CheckExchangeInitialized = `SELECT EXISTS (
+	SELECT 1
+	FROM exchanges
+	WHERE (user_init_id = $1 AND user_continue_id = $2))`
+
+const InitExchange = `INSERT INTO exchanges
+	(user_init_id, user_continue_id, card_init_id) VALUES ($1, $2, $3)
+	RETURNING
+	    id, user_init_id, card_init_id, user_init_accept, user_continue_id, card_continue_id, user_continue_accept`
+
+const ContinueExchange = `UPDATE exchanges
+	SET card_continue_id = $3 WHERE user_init_id = $2 AND user_continue_id = $1
+	RETURNING
+	    id, user_init_id, card_init_id, user_init_accept, user_continue_id, card_continue_id, user_continue_accept`
+
+const AcceptExchange = ``
+
+const DeclineExchange = ``
