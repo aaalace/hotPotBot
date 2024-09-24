@@ -50,3 +50,14 @@ func GenerateCraftCardView(card *models.Card, typename string) string {
 
 	return textView
 }
+
+func GenerateExchangeCardView(card *models.Card, typename, partnerUsername string) string {
+	textView := fmt.Sprintf(
+		"Поздравляем, обмен с @%s состоялся!\nВы получили карту %s\n\nТип: %s\nFame: %v\n\n",
+		partnerUsername,
+		card.Name,
+		typename,
+		card.Weight)
+
+	return textView
+}

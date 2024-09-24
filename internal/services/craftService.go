@@ -32,11 +32,11 @@ func (service *CraftService) CraftCard(userId, oldId, oldAmount, newId int) (*mo
 	for _, card := range duplicates {
 		currentRemoveAbility := 0
 		err = service.Ctx.DB.Get(&currentRemoveAbility, db.SelectUserCardQuantity, userId, card.Id)
-		currentRemoveAbility -= 1
-		duplicatesAmounts = append(duplicatesAmounts, currentRemoveAbility) // already -1 !!!
 		if err != nil {
 			return nil, err
 		}
+		currentRemoveAbility -= 1
+		duplicatesAmounts = append(duplicatesAmounts, currentRemoveAbility) // already -1 !!!
 		canBeRemovedCounter += currentRemoveAbility
 	}
 
