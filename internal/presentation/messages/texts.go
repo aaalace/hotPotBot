@@ -70,7 +70,7 @@ func WaitPartnerToAcceptExchange(partnerUsername string) string {
 
 func SuccessExchange(partnerUsername string, partnerCard *models.Card) string {
 	return fmt.Sprintf(
-		"Поздравляем, обмен с @%s состоялся!\nВы получили карту %s [Fame %v]",
+		"Поздравляем, обмен с @%s состоялся!\nВы получили карту:",
 		partnerUsername,
 		partnerCard.Name,
 		partnerCard.Weight)

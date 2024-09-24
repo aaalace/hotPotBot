@@ -5,7 +5,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./daily.log:/daily.log
+      - ./daily.log:/app/daily.log
 
 #-----------REMOTE COMPOSE-----------
 #services:
@@ -17,3 +17,4 @@ services:
 #      - "8080:8080"
 #    volumes:
 #      - ./daily.log:daily.log
+#      - .env:/app/.env

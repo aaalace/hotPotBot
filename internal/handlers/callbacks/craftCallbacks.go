@@ -102,6 +102,10 @@ func HandleCraftAgreement(ctx *context.AppContext, bot *tgbotapi.BotAPI, callbac
 	}
 
 	imageReader, err := s3.DownloadImageFromS3(ctx.S3Client, craftedCard.ImageUrl)
+	if err != nil {
+		logger.Log.Errorf("Error in image reader <HandleCraftAgreement> | %v", err.Error())
+		return
+	}
 
 	photo := tgbotapi.NewPhoto(callback.Message.Chat.ID, tgbotapi.FileReader{
 		Name:   craftedCard.ImageUrl,

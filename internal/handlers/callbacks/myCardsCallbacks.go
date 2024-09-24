@@ -104,6 +104,10 @@ func HandleShowCardInList(
 	}
 
 	imageReader, err := s3.DownloadImageFromS3(ctx.S3Client, card.ImageUrl)
+	if err != nil {
+		logger.Log.Errorf("Error in image reader <HandleShowCardInList> | %v", err.Error())
+		return
+	}
 
 	photo := tgbotapi.NewPhoto(callback.Message.Chat.ID, tgbotapi.FileReader{
 		Name:   card.ImageUrl,

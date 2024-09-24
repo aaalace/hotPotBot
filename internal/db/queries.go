@@ -67,6 +67,9 @@ const SelectUserCardQuantity = `SELECT quantity FROM user_cards WHERE user_id = 
 const MinusUserCardQuantity = `UPDATE user_cards SET quantity = quantity - :to_remove
     WHERE user_id = :user_id AND card_id = :card_id`
 
+const DeleteUserCard = `DELETE FROM user_cards
+	WHERE (user_id = $1 AND card_id = $2)`
+
 // -----CARD_TYPES-----
 
 const SelectTypeNameById = `SELECT name FROM card_types WHERE id = $1`
@@ -96,6 +99,16 @@ const ContinueExchange = `UPDATE exchanges
 	RETURNING
 	    id, user_init_id, card_init_id, user_init_accept, user_continue_id, card_continue_id, user_continue_accept`
 
-const AcceptExchange = ``
+const AcceptExchange = `UPDATE exchanges
+	SET 
+		user_init_accept = CASE WHEN user_init_id = $1 THEN TRUE ELSE user_init_accept END,
+		user_continue_accept = CASE WHEN user_continue_id = $1 THEN TRUE ELSE user_continue_accept END
+	WHERE 
+		(user_init_id = $1 AND user_continue_id = $2) OR
+		(user_init_id = $2 AND user_continue_id = $1)
+	RETURNING
+	    id, user_init_id, card_init_id, user_init_accept, user_continue_id, card_continue_id, user_continue_accept`
 
-const DeclineExchange = ``
+const DeleteExchange = `DELETE FROM exchanges
+	WHERE (user_init_id = $1 AND user_continue_id = $2
+		OR user_init_id = $2 AND user_continue_id = $1)`
